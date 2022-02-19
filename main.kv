@@ -1,0 +1,72 @@
+<NominalButton@MDTextButton>:
+    size_hint_y: 1
+<NewBoxLayout@BoxLayout>:
+    orientation: "vertical"
+    padding: 15
+    spacing: 5
+<LogList>:
+    text: root.text
+    font_style: "Caption"
+
+<MainScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        MDToolbar:
+            title: app.title
+            elevation: 10
+        MDTabs:
+            id: tabs
+            anim_duration: 0
+            lock_swiping: True
+            no_ripple_effect: True
+            tab_hint_x: True
+            Tab:
+                text: "Log"
+                MainScreenLog:
+                    id: log_screen
+            Tab:
+                text: "Input"
+                MainScreenInput:
+                    id: input_screen
+            Tab:
+                text: "About"
+                MainScreenAbout:
+                    id: about_screen
+
+
+<MainScreenInput>:
+    NewBoxLayout:
+        GridLayout:
+            id: nominal_grid
+            rows: 5
+            padding: 5
+            spacing: 12
+        BoxLayout:
+            pos_hint: {"x":.2}
+            size_hint_y: .1
+            spacing: 12
+            padding: 5
+            MDRectangleFlatButton:
+                text: "Sum"
+                theme_text_color: "Custom"
+                text_color: 0, 0, 1, 1
+                line_color: 0, 0, 1, 1
+                on_release: app.sum_nominal()
+            MDRectangleFlatButton:
+                text: "Reset"
+                theme_text_color: "Custom"
+                text_color: 1, 0, 0, 1
+                line_color: 1, 0, 0, 1
+                on_release: app.reset_nominal()
+
+<MainScreenLog>:
+    NewBoxLayout:
+        ScrollView:
+            MDList:
+                id: log_lists
+
+<MainScreenAbout>:
+    NewBoxLayout:
+        MDLabel:
+            text: app.title_about
+            halign: "center"
