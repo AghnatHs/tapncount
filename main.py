@@ -1,4 +1,3 @@
-from cProfile import label
 from kivy.core.window import Window
 from kivy.metrics import dp
 from kivy.uix.screenmanager import Screen,ScreenManager
@@ -9,7 +8,7 @@ from kivymd.uix.snackbar import Snackbar
 
 from uix import *
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 if platform != "android":
     scale = 40
